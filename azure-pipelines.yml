@@ -6,9 +6,10 @@
 trigger:
 - main
 
-task: Terraform
-TaskV1@0 
-inputs:
-     provider: 'azurerm'
 
-     command: 'apply'
+Script:
+  -task: Terraform
+inputs:
+          provider: 'azurerm'
+
+          command: 'apply'
