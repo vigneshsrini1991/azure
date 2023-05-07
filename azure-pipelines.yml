@@ -6,12 +6,6 @@
 trigger:
 - main
 
-steps:
-- task: TerraformInstaller@0
-  displayName: 'Install Terraform'
-  inputs:
-    terraformVersion: '1.0.3'
-
 - script: |
     terraform init
     terraform plan -out=tfplan
