@@ -8,9 +8,11 @@ pool:
 
 steps:
 
-- script: |
-    echo "Hello, World!"
+	https://github.com/vigneshsrini1991/azure/blob/main/module/main.tf
+	terraform init
+    terraform plan
+
 
 - script: |
-    terraform apply -auto-approve
+    terraform apply -auto-approve tfplan
   displayName: 'Apply'
