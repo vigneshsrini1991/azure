@@ -7,10 +7,9 @@ pool:
    - agent.name -equals DESKTOP-7HE5D1K
 
 steps:
-
-	https://github.com/vigneshsrini1991/azure/blob/main/module/main.tf
-	terraform init
-    terraform plan
+- name: Print working directory
+  run: |
+    echo "The current working directory is: $GITHUB_WORKSPACE"
 
 
 - script: |
