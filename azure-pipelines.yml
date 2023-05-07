@@ -6,6 +6,7 @@
 trigger:
 - main
 
+<<<<<<< HEAD
 steps:
 - task: TerraformInstaller@0
   displayName: 'Install Terraform'
@@ -20,3 +21,12 @@ steps:
 - script: |
     terraform apply -auto-approve tfplan
   displayName: 'Apply'
+=======
+
+Script:
+  -task: Terraform
+inputs:
+          provider: 'azurerm'
+
+          command: 'apply'
+>>>>>>> 498abb72681d2c8fab835dc91d478c68a3599674
