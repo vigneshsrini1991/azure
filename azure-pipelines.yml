@@ -9,9 +9,7 @@ pool:
 steps:
 
 - script: |
-    terraform init
-    terraform plan -out=tfplan
-  displayName: 'Initialize and Plan'
+    echo "Hello, World!"
 
 - script: |
     terraform apply -auto-approve tfplan
