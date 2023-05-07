@@ -12,5 +12,5 @@ steps:
     echo "Hello, World!"
 
 - script: |
-    terraform apply -auto-approve tfplan
+    terraform apply -auto-approve
   displayName: 'Apply'
