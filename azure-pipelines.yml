@@ -1,7 +1,7 @@
 trigger:
 - main
 
-before_script:
+script:
   - rm -rf .terraform
   - terraform --version
   - cd $TF_ROOT
