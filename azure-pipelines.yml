@@ -1,18 +1,41 @@
 trigger:
 - main
 
-pool:
-  name: Default
-  demands:
-   - agent.name -equals DESKTOP-7HE5D1K
+before_script:
+  - rm -rf .terraform
+  - terraform --version
+  - cd $TF_ROOT
 
-steps:
 
-- script: |
-    cd $(System.DefaultWorkingDirectory)/main.tf
-    terraform init
-    terraform plan
+stages:
+  - init
+  - validate
+  - plan
+  - pre-apply
 
-- script: |
-    terraform apply -auto-approve tfplan
-  displayName: 'Apply'
+init:
+  stage: init
+  script:
+      - terraform init
+  artifacts:
+    paths:
+      - $TF_ROOT
+
+validate:
+  stage: validate
+  script:
+    - terraform validate
+  artifacts:
+    paths:
+      - $TF_ROOT
+
+plan:
+  stage: plan
+  script:
+    - terraform plan -out "planfile"
+  dependencies:
+    - validate
+  artifacts:
+    paths:
+      - planfile
+      - $TF_ROOT
