@@ -8,11 +8,8 @@ pool:
 
 name: Self-Hosted Agent Terraform Plan
 
-on: [push]
-
-
 jobs:
-  terraform_plan:
+  
     runs-on: self-hosted
     steps:
     - name: Checkout Terraform code
