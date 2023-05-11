@@ -6,6 +6,11 @@ pool:
   demands:
    - agent.name -equals DESKTOP-7HE5D1K
 
+name: Self-Hosted Agent Terraform Plan
+
+on: [push]
+
+
 jobs:
   terraform_plan:
     runs-on: self-hosted
