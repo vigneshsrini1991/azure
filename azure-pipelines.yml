@@ -6,11 +6,16 @@ pool:
   demands:
    - agent.name -equals DESKTOP-7HE5D1K
 
-steps:
-	terraform init
-  terraform plan
+ - task: TerraformInstaller@0
+        displayName: 'Install Terraform'
+        inputs:
+          terraformVersion: '1.0.0'  # Specify the desired Terraform version
 
+      - script: 'terraform init'
+        displayName: 'Terraform Init'
+        workingDirectory: '<Terraform Configuration Directory>'
 
-- script: |
-    terraform apply -auto-approve tfplan
-  displayName: 'Apply'
+      - script: 'terraform plan'
+        displayName: 'Terraform Plan'
+        workingDirectory: '<Terraform Configuration Directory>'
+  
