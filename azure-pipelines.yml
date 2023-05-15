@@ -1,3 +1,5 @@
+
+
 trigger:
 - main
 
@@ -6,14 +8,13 @@ pool:
   demands:
    - agent.name -equals DESKTOP-7HE5D1K
 
-name: Self-Hosted Agent Terraform Plan
+steps:
 
-jobs:
-    - name: Install Terraform
-      run: |
-        curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-        sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-        sudo apt-get update && sudo apt-get install terraform
-    - name: Terraform Init
-      run: terraform init
-    - name: Terraform Plan
+	https://github.com/vigneshsrini1991/azure/blob/main/module/main.tf
+	terraform init
+    terraform plan
+
+
+- script: |
+    terraform apply -auto-approve tfplan
+  displayName: 'Apply'
