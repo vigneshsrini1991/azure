@@ -7,10 +7,8 @@ pool:
    - agent.name -equals DESKTOP-7HE5D1K
 
 steps:
-
-	https://github.com/vigneshsrini1991/azure/blob/main/module/main.tf
 	terraform init
-    terraform plan
+  terraform plan
 
 
 - script: |
