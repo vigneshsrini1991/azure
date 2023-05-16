@@ -8,4 +8,6 @@ pool:
    
 - task: CmdLine@2
   inputs:
-    script: 'terraform plan'
+    script: |
+      terraform init
+      terraform plan
