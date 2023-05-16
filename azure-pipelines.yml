@@ -5,7 +5,6 @@ pool:
   name: Default
   demands:
    - agent.name -equals DESKTOP-7HE5D1K
-   
 - task: CmdLine@2
   inputs:
     script: |
