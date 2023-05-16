@@ -5,17 +5,7 @@ pool:
   name: Default
   demands:
    - agent.name -equals DESKTOP-7HE5D1K
-
- - task: TerraformInstaller@0
-        displayName: 'Install Terraform'
-        inputs:
-          terraformVersion: '1.0.0'  # Specify the desired Terraform version
-
-      - script: 'terraform init'
-        displayName: 'Terraform Init'
-        workingDirectory: '<Terraform Configuration Directory>'
-
-      - script: 'terraform plan'
-        displayName: 'Terraform Plan'
-        workingDirectory: '<Terraform Configuration Directory>'
-  
+   
+- task: CmdLine@2
+  inputs:
+    script: 'terraform plan'
